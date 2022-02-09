@@ -24,6 +24,14 @@ class SingleLinkList:
 
             last.next = node
 
+    def add_node_after_specific_node(self, value, specific_node):
+        node = Node(value)
+        if self.head is None:
+            self.head = node
+        else:
+            node.next = specific_node.next
+            specific_node.next = node
+
     def print_node_values(self):
         node = self.head
         while node:
@@ -34,4 +42,5 @@ class SingleLinkList:
 objSingleLinkList = SingleLinkList()
 objSingleLinkList.add_head(1)
 objSingleLinkList.add_last_node(2)
+objSingleLinkList.add_node_after_specific_node(3, objSingleLinkList.head)
 objSingleLinkList.print_node_values()
