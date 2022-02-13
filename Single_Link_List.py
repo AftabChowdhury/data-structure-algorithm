@@ -24,13 +24,20 @@ class SingleLinkList:
 
             last.next = node
 
-    def add_node_after_specific_node(self, value, specific_node):
-        node = Node(value)
+    def add_node_after_specific_node(self, specific_node_value, new_value):
+        new_node = Node(new_value)
         if self.head is None:
-            self.head = node
+            self.head = new_node
         else:
-            node.next = specific_node.next
-            specific_node.next = node
+            specific_node = Node(specific_node_value)
+            traverse_node = self.head
+            while traverse_node:
+                if traverse_node.node_value == specific_node_value:
+                    specific_node.next = traverse_node.next
+                    traverse_node.next = new_node
+                    break
+                else:
+                    traverse_node = traverse_node.next
 
     def delete_node(self, value):
         if self.head is None:
@@ -58,6 +65,7 @@ class SingleLinkList:
 objSingleLinkList = SingleLinkList()
 objSingleLinkList.add_head(1)
 objSingleLinkList.add_last_node(2)
-objSingleLinkList.add_node_after_specific_node(3, objSingleLinkList.head)
+objSingleLinkList.add_node_after_specific_node(2, 3)
+objSingleLinkList.add_node_after_specific_node(3, 4)
 objSingleLinkList.delete_node(3)
 objSingleLinkList.print_node_values()
