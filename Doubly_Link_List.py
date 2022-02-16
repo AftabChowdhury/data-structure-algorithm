@@ -13,9 +13,13 @@ class DoublyLinkList:
 
     def add_head(self, value):
         node = Node(value)
-        node.next = self.head
-        self.head = node
-        self.size += 1
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head = node
+            self.size += 1
 
     def print_values(self):
         traverse_node = self.head
