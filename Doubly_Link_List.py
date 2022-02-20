@@ -54,7 +54,7 @@ class DoublyLinkList:
                 else:
                     traverse_node = traverse_node.next
 
-    def delete_node(self, value):
+    def delete_node_start_head(self, value):
         traverse_node = self.head
         while traverse_node:
             if traverse_node.node_value == value:
@@ -73,6 +73,26 @@ class DoublyLinkList:
             else:
                 previous_node = traverse_node
                 traverse_node = traverse_node.next
+
+    def delete_node_start_tail(self, value):
+        traverse_node = self.tail
+        while traverse_node:
+            if traverse_node.node_value == value:
+                if traverse_node.node_value == self.head.node_value:
+                    self.head = traverse_node.next
+                    self.size -= 1
+                    break
+                elif traverse_node.node_value == self.tail.node_value:
+                    self.tail = traverse_node.previous
+                    self.size -= 1
+                    break
+                else:
+                    previous_node.previous = traverse_node.previous
+                    self.size -= 1
+                    break
+            else:
+                previous_node = traverse_node
+                traverse_node = traverse_node.previous
 
     def print_values(self):
         traverse_node = self.head
@@ -93,7 +113,8 @@ objDoubly_Link_List.add_last_node(2)
 objDoubly_Link_List.add_last_node(3)
 objDoubly_Link_List.add_last_node(4)
 objDoubly_Link_List.add_after_specific_node(2, 20)
-objDoubly_Link_List.delete_node(20)
+objDoubly_Link_List.delete_node_start_head(1)
+objDoubly_Link_List.delete_node_start_tail(1)
 print('Forward List')
 objDoubly_Link_List.print_values()
 print('Reverse List')
