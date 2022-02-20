@@ -48,11 +48,10 @@ class SingleLinkList:
                 return
             while node:
                 if node.node_value == value:
+                    previous.next = node.next
                     break
                 previous = node
                 node = node.next
-
-            previous.next = node.next
 
     def print_node_values(self):
         node = self.head
