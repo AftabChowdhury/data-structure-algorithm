@@ -29,11 +29,10 @@ class SingleLinkList:
         if self.head is None:
             self.head = new_node
         else:
-            specific_node = Node(specific_node_value)
             traverse_node = self.head
             while traverse_node:
                 if traverse_node.node_value == specific_node_value:
-                    specific_node.next = traverse_node.next
+                    new_node.next = traverse_node.next
                     traverse_node.next = new_node
                     break
                 else:
