@@ -4,7 +4,7 @@ def create_hash_map_from_string(string_name):
         if hash_map.get(character) is None:
             hash_map[character] = 1
         else:
-            hash_map[character] = hash_map[character] + 1
+            hash_map[character] += + 1
     return hash_map
 
 
