@@ -25,3 +25,23 @@ def bfs(visited, graph, node):
 
 
 bfs(visited, graph, 'A')
+
+# class Node:
+#   def __init__(self, name):
+#     self.children = []
+#     self.name = name
+#
+#   def addChild(self, name):
+#     self.children.append(Node(name))
+#     return self
+#
+#   def breadthFirstSearch(self, array):
+#     # Write your code here.
+#     queue = [self]
+#     while queue:
+#       current_node = queue.pop(0)
+#       array.append(current_node)
+#       for adjacent_node in current_node:
+#         queue.append(adjacent_node)
+#
+#     return array
