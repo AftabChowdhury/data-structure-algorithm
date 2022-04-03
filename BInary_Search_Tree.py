@@ -18,6 +18,7 @@ class Node:
                 self.right_node = Node(value)
             else:
                 self.right_node.add_new_node(value)
+        return self
 
     def search_node(self, value):
         if value == self.node_value:
